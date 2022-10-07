@@ -84,19 +84,19 @@ message from one side to the other side. The whole test runs 10000 iterations to
 get a stable result. The result shows that a thread context switch takes around
 1.7us, compared to 0.2us of a Rust async task switch.
 
-It's the first time to mention "Rust async task", formally it's called
-[coroutine][6]. The coroutines are lightweight tasks for non-preemptive
-multitasking, whose execution can be suspended and resumed. Usually, the task
-itself decides when to suspend and wait for a notification to resume. To suspend
-and resume tasks' execution flow, the execution states should be saved, just
-like what OS does. Saving the CPU register values is easy for the OS, but not
-for the applications. Rust saves it to a state machine, and the machine can only
-be suspended and resumed from the valid states in that machine. We name the
-state machine "Future".
+It's the first time to mention "Rust async task", which is a concrete
+implementation of [coroutine][6] in Rust. The coroutines are lightweight tasks
+for non-preemptive multitasking, whose execution can be suspended and resumed.
+Usually, the task itself decides when to suspend and wait for a notification to
+resume. To suspend and resume tasks' execution flow, the execution states should
+be saved, just like what OS does. Saving the CPU register values is easy for the
+OS, but not for the applications. Rust saves it to a state machine, and the
+machine can only be suspended and resumed from the valid states in that machine.
+To make it easy, We name the state machine "Future".
 
 ## Future
 
-We all know that the Future is the data structure returned from an async function,
+We all know that the `Future` is the data structure returned from an async function,
 an async block is also a future. When we get it, it does nothing, it's just a
 plan and a blueprint, telling us what it's going to do. Let's see the example
 below:
@@ -140,20 +140,24 @@ is returned it means the coroutine is suspended. Every call to `poll` is trying
 to resume the coroutine.
 
 
-## Driver
+## Runtime
 
 Since `Future`s are state machines, there should be a driver that pushes the
 machine state forward. Though we can write the driver manually by `poll`ing the
 `Future`s one by one until we get the final result, that work should be done
-once and reused everywhere, in the result the runtime comes. One of the key
-features of Rust async runtime is to drive `Future`s forward.
+once and reused everywhere, in the result the `runtime` comes. A Rust async
+runtime handles the following tasks:
+
+1. Drive the received `Future`s forward.
+2. Park or store the blocked `Future`s.
+3. Get notification to restore or resume the blocked `Future`s.
 
 # Summary
 
-In this chapter, we learned that "Rust async" is a way to schedule tasks, also
-named coroutine. And the execution state is stored in a state machine `Future`.
-In the next chapters, we'll discuss `Future` automatical generation by the
-compiler and its optimizations.
+In this chapter, we learned that "Rust async" is a way to schedule tasks. And
+the execution state is stored in a state machine named `Future`. In the next
+chapters, we'll discuss `Future` automatical generation by the compiler and its
+optimizations.
 
 [1]: https://en.wikipedia.org/wiki/Inter-process_communication
 [2]: https://www.amd.com/en/products/cpu/amd-ryzen-threadripper-pro-5995wx
