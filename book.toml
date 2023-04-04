@@ -1,6 +1,18 @@
 [book]
-authors = ["Rust you don't know authers"]
+authors = ["ShiJiCheng, ZhangHanDong"]
 language = "en"
 multilingual = false
 src = "src"
-title = "rust you don't know"
+title = "Rust you don't know"
+
+[build]
+create-missing = true
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
+max-level = 2
+
+[output.html.fold]
+enable = true
+level = 0
