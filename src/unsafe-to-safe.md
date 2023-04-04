@@ -1,0 +1,5 @@
+## From Unsafe To Safe
+
+"From Unsafe to Safe" delves into the world of unsafe Rust code and its journey towards safety. This guide will provide you with an in-depth understanding of Rust's safety guarantees, the role of unsafe code, and how to properly encapsulate and abstract unsafe code to create safe APIs. We will cover topics such as raw pointers, manual memory management, and the delicate dance of working with FFI (Foreign Function Interface) in Rust. Our aim is to equip you with the knowledge and best practices required to work with unsafe Rust code, while preserving the safety guarantees that make Rust such a unique and powerful systems programming language. By the end of this guide, you will be able to transform unsafe code into safe, maintainable, and reliable Rust code that adheres to Rust's core safety principles.
+
+“从不安全到安全”深入探讨了不安全 Rust 代码及其走向安全的过程。本指南将帮助您深入了解 Rust 的安全保证、不安全代码的作用以及如何正确封装和抽象不安全代码以创建安全 API。我们将涵盖诸如原始指针、手动内存管理以及在 Rust 中处理 FFI（外部函数接口）的微妙技巧等主题。我们的目标是让您掌握使用不安全 Rust 代码的知识和最佳实践，同时保留使 Rust 成为独特而强大的系统编程语言的安全保证。在本指南的最后，您将能够将不安全代码转换为符合 Rust 核心安全原则的安全、可维护且可靠的 Rust 代码。

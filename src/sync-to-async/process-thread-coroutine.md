@@ -1,4 +1,6 @@
-Process, Thread, and Coroutine
+# From Sync to Async | Process, Thread, and Coroutine
+Author: ShiJiCheng
+
 ---
 
 Before we start discussing the asynchronization of Rust, we'd better firstly

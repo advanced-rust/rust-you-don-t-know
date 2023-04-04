@@ -1,0 +1,5 @@
+## From Sync to Async
+
+"From Sync to Async" is a comprehensive guide that takes you on a journey through the process of converting synchronous Rust code into asynchronous Rust code. In this guide, we will explore how the async/await syntax, Futures, and various async runtimes, such as Tokio, can be employed to create highly concurrent and scalable applications in Rust. You will learn the key principles and best practices for writing asynchronous code, including error handling, stream processing, and efficient resource management. By the end of this guide, you will have the knowledge and tools necessary to refactor your synchronous Rust code into highly performant, asynchronous code that can take full advantage of Rust's powerful concurrency model.
+
+“从同步到异步”是一本全面的指南，带领您了解如何将同步 Rust 代码转换为异步 Rust 代码的过程。在本指南中，我们将探讨如何使用 async/await 语法、Futures 以及各种异步运行时（如 Tokio）来创建高度并发且可扩展的 Rust 应用程序。您将学习编写异步代码的关键原则和最佳实践，包括错误处理、流处理和高效的资源管理。在本指南的最后，您将具备将同步 Rust 代码重构为高性能异步代码的知识和工具，从而充分利用 Rust 强大的并发模型。
